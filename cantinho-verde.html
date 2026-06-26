@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cantinho Verde 🌿</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --verde: #1B4332;
+    --verde-medio: #2D6A4F;
+    --bege: #F5F0E8;
+    --bege-escuro: #E8E0D0;
+    --branco: #FAFAF7;
+    --texto: #2C2C2C;
+    --texto-leve: #6B6B6B;
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--branco);
+    color: var(--texto);
+    font-weight: 300;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--branco);
+    border-bottom: 1px solid var(--bege-escuro);
+    padding: 20px 24px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo-nome {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--verde);
+    letter-spacing: 1px;
+  }
+
+  .logo-slogan {
+    font-size: 11px;
+    color: var(--texto-leve);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--bege);
+    padding: 60px 24px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 8vw, 56px);
+    font-weight: 300;
+    color: var(--verde);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .hero p {
+    font-size: 14px;
+    color: var(--texto-leve);
+    max-width: 320px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--verde);
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+
+  .btn-whatsapp:hover { background: var(--verde-medio); }
+
+  /* COMO FUNCIONA */
+  .como-funciona {
+    padding: 56px 24px;
+    text-align: center;
+    background: var(--branco);
+  }
+
+  .secao-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--verde);
+    margin-bottom: 8px;
+  }
+
+  .secao-linha {
+    width: 40px;
+    height: 1px;
+    background: var(--bege-escuro);
+    margin: 12px auto 36px;
+  }
+
+  .passos {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .passo {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    text-align: left;
+  }
+
+  .passo-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--bege-escuro);
+    line-height: 1;
+    min-width: 32px;
+  }
+
+  .passo-texto strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--verde);
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  .passo-texto span {
+    font-size: 13px;
+    color: var(--texto-leve);
+  }
+
+  /* CATÁLOGO */
+  .catalogo {
+    padding: 56px 24px;
+    background: var(--bege);
+  }
+
+  .catalogo-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  /* FILTROS */
+  .filtros {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .filtro-btn {
+    padding: 8px 18px;
+    border: 1px solid var(--verde);
+    background: transparent;
+    color: var(--verde);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filtro-btn.ativo, .filtro-btn:hover {
+    background: var(--verde);
+    color: white;
+  }
+
+  /* GRID DE PRODUTOS */
+  .produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .produto-card {
+    background: var(--branco);
+    overflow: hidden;
+  }
+
+  .produto-img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    background: var(--bege-escuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: var(--verde);
+  }
+
+  .produto-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .produto-img.placeholder {
+    font-size: 36px;
+  }
+
+  .produto-info {
+    padding: 14px;
+  }
+
+  .produto-categoria {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-leve);
+    margin-bottom: 4px;
+  }
+
+  .produto-nome {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--verde);
+    margin-bottom: 4px;
+  }
+
+  .produto-descricao {
+    font-size: 12px;
+    color: var(--texto-leve);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .produto-preco {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--verde);
+    margin-bottom: 12px;
+  }
+
+  .btn-pedir {
+    display: block;
+    text-align: center;
+    background: var(--verde);
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    transition: background 0.2s;
+  }
+
+  .btn-pedir:hover { background: var(--verde-medio); }
+
+  /* FOOTER */
+  footer {
+    background: var(--verde);
+    color: var(--bege);
+    text-align: center;
+    padding: 48px 24px;
+  }
+
+  footer .logo-nome { color: var(--bege); font-size: 24px; }
+  footer .logo-slogan { color: rgba(245,240,232,0.6); margin-bottom: 24px; }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .footer-links a {
+    color: var(--bege);
+    text-decoration: none;
+    font-size: 13px;
+    opacity: 0.8;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    opacity: 0.4;
+    letter-spacing: 1px;
+  }
+
+  .btn-whatsapp-footer {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--bege);
+    color: var(--bege);
+    text-decoration: none;
+    padding: 12px 24px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    transition: all 0.2s;
+  }
+
+  .btn-whatsapp-footer:hover {
+    background: var(--bege);
+    color: var(--verde);
+  }
+
+  @media (min-width: 600px) {
+    .produtos-grid { grid-template-columns: repeat(3, 1fr); }
+    .passos { flex-direction: row; max-width: 700px; }
+    .passo { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-nome">Cantinho Verde 🌿</div>
+  <div class="logo-slogan">Presentes que florescem, carinho que fica</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Presentes que<br><em>transformam</em><br>momentos.</h1>
+  <p>Vasos decorativos, suculentas e arranjos feitos sob encomenda com muito carinho. Entrega local em Sabinópolis - MG.</p>
+  <a href="https://wa.me/5535966073621" class="btn-whatsapp" target="_blank">
+    💬 Fazer pedido
+  </a>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como-funciona">
+  <h2 class="secao-titulo">Como funciona?</h2>
+  <div class="secao-linha"></div>
+  <div class="passos">
+    <div class="passo">
+      <div class="passo-num">1</div>
+      <div class="passo-texto">
+        <strong>Escolha no catálogo</strong>
+        <span>Navegue pelos produtos abaixo e encontre o seu favorito</span>
+      </div>
+    </div>
+    <div class="passo">
+      <div class="passo-num">2</div>
+      <div class="passo-texto">
+        <strong>Chame no WhatsApp</strong>
+        <span>Clique em "Pedir agora" e fale direto com a gente</span>
+      </div>
+    </div>
+    <div class="passo">
+      <div class="passo-num">3</div>
+      <div class="passo-texto">
+        <strong>Confirme com 50%</strong>
+        <span>Entrada para garantir seu pedido e combinamos a entrega</span>
+      </div>
+    </div>
+    <div class="passo">
+      <div class="passo-num">4</div>
+      <div class="passo-texto">
+        <strong>Receba em casa</strong>
+        <span>Entregamos em Sabinópolis com todo o cuidado 🌿</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section class="catalogo">
+  <div class="catalogo-header">
+    <h2 class="secao-titulo">Catálogo</h2>
+    <div class="secao-linha"></div>
+  </div>
+
+  <div class="filtros">
+    <button class="filtro-btn ativo" onclick="filtrar('todos', this)">Todos</button>
+    <button class="filtro-btn" onclick="filtrar('vasos', this)">Vasos</button>
+    <button class="filtro-btn" onclick="filtrar('suculentas', this)">Suculentas</button>
+    <button class="filtro-btn" onclick="filtrar('presentes', this)">Presentes</button>
+  </div>
+
+  <div class="produtos-grid" id="grid">
+
+    <!-- ===== PRODUTOS — edite aqui ===== -->
+    <!-- Para adicionar produto: copie um bloco .produto-card e cole abaixo -->
+    <!-- Para trocar imagem: substitua o emoji por <img src="URL_DA_FOTO"> dentro de .produto-img -->
+
+    <div class="produto-card" data-categoria="vasos">
+      <div class="produto-img placeholder">🏺</div>
+      <div class="produto-info">
+        <div class="produto-categoria">Vasos</div>
+        <div class="produto-nome">Vaso Decorativo</div>
+        <div class="produto-descricao">Adicione aqui a descrição do produto.</div>
+        <div class="produto-preco">A partir de R$ 00,00</div>
+        <a href="https://wa.me/5535966073621?text=Olá!%20Tenho%20interesse%20no%20Vaso%20Decorativo%20🌿" class="btn-pedir" target="_blank">Pedir agora</a>
+      </div>
+    </div>
+
+    <div class="produto-card" data-categoria="suculentas">
+      <div class="produto-img placeholder">🌵</div>
+      <div class="produto-info">
+        <div class="produto-categoria">Suculentas</div>
+        <div class="produto-nome">Suculenta</div>
+        <div class="produto-descricao">Adicione aqui a descrição do produto.</div>
+        <div class="produto-preco">A partir de R$ 00,00</div>
+        <a href="https://wa.me/5535966073621?text=Olá!%20Tenho%20interesse%20na%20Suculenta%20🌵" class="btn-pedir" target="_blank">Pedir agora</a>
+      </div>
+    </div>
+
+    <div class="produto-card" data-categoria="presentes">
+      <div class="produto-img placeholder">🎁</div>
+      <div class="produto-info">
+        <div class="produto-categoria">Presentes</div>
+        <div class="produto-nome">Arranjo Presente</div>
+        <div class="produto-descricao">Adicione aqui a descrição do produto.</div>
+        <div class="produto-preco">A partir de R$ 00,00</div>
+        <a href="https://wa.me/5535966073621?text=Olá!%20Tenho%20interesse%20no%20Arranjo%20Presente%20🎁" class="btn-pedir" target="_blank">Pedir agora</a>
+      </div>
+    </div>
+
+    <div class="produto-card" data-categoria="vasos">
+      <div class="produto-img placeholder">🏺</div>
+      <div class="produto-info">
+        <div class="produto-categoria">Vasos</div>
+        <div class="produto-nome">Vaso Decorativo</div>
+        <div class="produto-descricao">Adicione aqui a descrição do produto.</div>
+        <div class="produto-preco">A partir de R$ 00,00</div>
+        <a href="https://wa.me/5535966073621?text=Olá!%20Tenho%20interesse%20no%20Vaso%20Decorativo%20🌿" class="btn-pedir" target="_blank">Pedir agora</a>
+      </div>
+    </div>
+
+    <!-- ===== FIM DOS PRODUTOS ===== -->
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo-nome">Cantinho Verde 🌿</div>
+  <div class="logo-slogan" style="margin-bottom:28px">Presentes que florescem, carinho que fica</div>
+  <a href="https://wa.me/5535966073621" class="btn-whatsapp-footer" target="_blank">
+    💬 Chamar no WhatsApp
+  </a>
+  <div class="footer-links">
+    <a href="https://instagram.com/cantinhoverde" target="_blank">📸 Instagram</a>
+    <div style="font-size:12px;opacity:0.5">📍 Sabinópolis - MG | Entrega local</div>
+  </div>
+  <div class="footer-copy">© 2026 Cantinho Verde. Todos os direitos reservados.</div>
+</footer>
+
+<script>
+function filtrar(categoria, btn) {
+  document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+  btn.classList.add('ativo');
+  document.querySelectorAll('.produto-card').forEach(card => {
+    if (categoria === 'todos' || card.dataset.categoria === categoria) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
