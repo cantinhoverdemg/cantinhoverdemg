@@ -79,6 +79,16 @@
   .btn-whatsapp-footer { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(245,240,232,0.4); color: var(--bege); text-decoration: none; padding: 11px 22px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 28px; transition: all 0.2s; }
   .btn-whatsapp-footer:hover { background: var(--bege); color: var(--texto); }
 
+
+
+  .cor-btn { transition: border 0.2s; border-radius: 0; }
+  .cor-btn.ativo { border: 2px solid var(--verde) !important; }
+
+  .btn-modelos { display: block; text-align: center; border: 1px solid var(--verde); color: var(--verde); padding: 8px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Jost', sans-serif; cursor: pointer; background: transparent; width: 100%; margin-bottom: 10px; transition: all 0.2s; }
+  .btn-modelos:hover { background: var(--bege); }
+  .modelos-lista { display: none; background: var(--bege); padding: 12px; margin-bottom: 10px; font-size: 12px; color: var(--texto-leve); line-height: 1.8; }
+  .modelos-lista.aberto { display: block; }
+
   @media (min-width: 600px) {
     .produtos-grid { grid-template-columns: repeat(2, 1fr); }
     .passos { flex-direction: row; max-width: 700px; }
@@ -111,121 +121,47 @@
     <div class="secao-linha"></div>
   </div>
 
-  <div class="filtros">
-    <button class="filtro-btn ativo" onclick="filtrar('vasos', this)">Vasos</button>
-    <button class="filtro-btn" onclick="filtrar('suculentas', this)">Suculentas</button>
-  </div>
-
-  <div class="produtos-grid" id="grid">
-
-    <!-- PRETO -->
-    <div class="produto-card" data-categoria="vasos">
+  <div style="max-width:500px;margin:0 auto;">
+    <div class="produto-card" style="border:1px solid var(--bege-escuro);">
+      
+      <!-- IMAGEM DINÂMICA -->
       <div class="produto-img">
-        <img src="https://cantinhoverdemg.github.io/cantinhoverdemg/preto.jpeg" alt="Coleção Romana Preto">
+        <img id="foto-romana" src="https://cantinhoverdemg.github.io/cantinhoverdemg/preto.jpeg" alt="Coleção Romana">
       </div>
+
       <div class="produto-info">
         <div class="produto-colecao">Coleção Romana</div>
-        <div class="produto-nome">Linha Preta</div>
-        <div class="produto-recomendado">Ideal para sala e varanda</div>
-        <div class="produto-cores">
-          <span class="cor-tag">Preto</span>
+        <div class="produto-nome">Vasos Decorativos</div>
+        <div class="produto-recomendado" id="recomendado-romana">Ideal para sala e varanda</div>
+
+        <!-- SELETOR DE COR -->
+        <div style="margin-bottom:12px;">
+          <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--texto-leve);margin-bottom:8px;">Cor selecionada: <span id="cor-selecionada" style="color:var(--verde);font-weight:500;">Preto</span></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="cor-btn ativo" onclick="trocarCor('preto.jpeg','Preto','Ideal para sala e varanda','Preto', this)" style="width:32px;height:32px;background:#2C2C2C;border:2px solid var(--verde);cursor:pointer;" title="Preto"></button>
+            <button class="cor-btn" onclick="trocarCor('cinzqa.jpeg','Cimento','Ideal para sala e escritório','Cimento', this)" style="width:32px;height:32px;background:#9E9E9E;border:2px solid transparent;cursor:pointer;" title="Cimento"></button>
+            <button class="cor-btn" onclick="trocarCor('terra.jpeg','Marrom','Ideal para jardim e varanda','Marrom', this)" style="width:32px;height:32px;background:#8B4513;border:2px solid transparent;cursor:pointer;" title="Marrom"></button>
+            <button class="cor-btn" onclick="trocarCor('beje.jpeg','Bege','Ideal para quarto e sala','Bege', this)" style="width:32px;height:32px;background:#D4B896;border:2px solid transparent;cursor:pointer;" title="Bege"></button>
+          </div>
         </div>
-        <div class="produto-modelos">
+
+        <!-- MODELOS -->
+        <div class="modelos-lista" id="modelos-romana">
           Coluna Nº1 — 35cm · R$ 69,90<br>
           Coluna Nº2 — 46cm · R$ 99,90<br>
           Bojo Escovado — 38cm · R$ 89,90<br>
           Bojo Nº1 — 20cm · R$ 49,90<br>
           Bacia Nº1 — 13cm · R$ 49,90
         </div>
+        <button class="btn-modelos" onclick="toggleModelos('romana', this)">Ver modelos e preços</button>
+
         <div class="produto-preco">A partir de R$ 49,90</div>
-        <a href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Romana%20na%20cor%20Preto%20🌿" class="btn-pedir" target="_blank">
+        <a id="btn-pedir-romana" href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Romana%20na%20cor%20Preto%20🌿" class="btn-pedir" target="_blank">
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Pedir agora
         </a>
       </div>
     </div>
-
-    <!-- CINZA -->
-    <div class="produto-card" data-categoria="vasos">
-      <div class="produto-img">
-        <img src="https://cantinhoverdemg.github.io/cantinhoverdemg/cinzqa.jpeg" alt="Coleção Romana Cinza">
-      </div>
-      <div class="produto-info">
-        <div class="produto-colecao">Coleção Romana</div>
-        <div class="produto-nome">Linha Cinza</div>
-        <div class="produto-recomendado">Ideal para sala e escritório</div>
-        <div class="produto-cores">
-          <span class="cor-tag">Cinza</span>
-        </div>
-        <div class="produto-modelos">
-          Coluna Nº1 — 35cm · R$ 69,90<br>
-          Coluna Nº2 — 46cm · R$ 99,90<br>
-          Bojo Escovado — 38cm · R$ 89,90<br>
-          Bojo Nº1 — 20cm · R$ 49,90<br>
-          Bacia Nº1 — 13cm · R$ 49,90
-        </div>
-        <div class="produto-preco">A partir de R$ 49,90</div>
-        <a href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Romana%20na%20cor%20Cinza%20🌿" class="btn-pedir" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Pedir agora
-        </a>
-      </div>
-    </div>
-
-    <!-- MARROM -->
-    <div class="produto-card" data-categoria="vasos">
-      <div class="produto-img">
-        <img src="https://cantinhoverdemg.github.io/cantinhoverdemg/terra.jpeg" alt="Coleção Romana Marrom">
-      </div>
-      <div class="produto-info">
-        <div class="produto-colecao">Coleção Romana</div>
-        <div class="produto-nome">Linha Terracota</div>
-        <div class="produto-recomendado">Ideal para jardim e varanda</div>
-        <div class="produto-cores">
-          <span class="cor-tag">Terracota</span>
-        </div>
-        <div class="produto-modelos">
-          Coluna Nº1 — 35cm · R$ 69,90<br>
-          Coluna Nº2 — 46cm · R$ 99,90<br>
-          Bojo Escovado — 38cm · R$ 89,90<br>
-          Bojo Nº1 — 20cm · R$ 49,90<br>
-          Bacia Nº1 — 13cm · R$ 49,90
-        </div>
-        <div class="produto-preco">A partir de R$ 49,90</div>
-        <a href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Romana%20na%20cor%20Terracota%20🌿" class="btn-pedir" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Pedir agora
-        </a>
-      </div>
-    </div>
-
-    <!-- BEGE -->
-    <div class="produto-card" data-categoria="vasos">
-      <div class="produto-img">
-        <img src="https://cantinhoverdemg.github.io/cantinhoverdemg/beje.jpeg" alt="Coleção Romana Bege">
-      </div>
-      <div class="produto-info">
-        <div class="produto-colecao">Coleção Romana</div>
-        <div class="produto-nome">Linha Bege</div>
-        <div class="produto-recomendado">Ideal para quarto e sala</div>
-        <div class="produto-cores">
-          <span class="cor-tag">Bege</span>
-        </div>
-        <div class="produto-modelos">
-          Coluna Nº1 — 35cm · R$ 69,90<br>
-          Coluna Nº2 — 46cm · R$ 99,90<br>
-          Bojo Escovado — 38cm · R$ 89,90<br>
-          Bojo Nº1 — 20cm · R$ 49,90<br>
-          Bacia Nº1 — 13cm · R$ 49,90
-        </div>
-        <div class="produto-preco">A partir de R$ 49,90</div>
-        <a href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Romana%20na%20cor%20Bege%20🌿" class="btn-pedir" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Pedir agora
-        </a>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -277,6 +213,23 @@
 </footer>
 
 <script>
+function trocarCor(foto, cor, recomendado, corNome, btn) {
+  const base = 'https://cantinhoverdemg.github.io/cantinhoverdemg/';
+  document.getElementById('foto-romana').src = base + foto;
+  document.getElementById('cor-selecionada').textContent = corNome;
+  document.getElementById('recomendado-romana').textContent = recomendado;
+  document.getElementById('btn-pedir-romana').href = 
+    'https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Romana%20na%20cor%20' + encodeURIComponent(corNome) + '%20🌿';
+  document.querySelectorAll('.cor-btn').forEach(b => b.classList.remove('ativo'));
+  btn.classList.add('ativo');
+}
+
+function toggleModelos(id, btn) {
+  const lista = document.getElementById('modelos-' + id);
+  lista.classList.toggle('aberto');
+  btn.textContent = lista.classList.contains('aberto') ? 'Fechar modelos' : 'Ver modelos e preços';
+}
+
 function filtrar(categoria, btn) {
   document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
   btn.classList.add('ativo');
