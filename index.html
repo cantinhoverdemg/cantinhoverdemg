@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --verde: #1B4332;
     --verde-medio: #2D6A4F;
@@ -17,463 +16,262 @@
     --texto: #2C2C2C;
     --texto-leve: #6B6B6B;
   }
+  body { font-family: 'Jost', sans-serif; background: var(--branco); color: var(--texto); font-weight: 300; }
 
-  body {
-    font-family: 'Jost', sans-serif;
-    background: var(--branco);
-    color: var(--texto);
-    font-weight: 300;
-  }
+  header { background: var(--branco); border-bottom: 1px solid var(--bege-escuro); padding: 16px 24px; text-align: center; position: sticky; top: 0; z-index: 100; }
+  .logo-nome { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--verde); letter-spacing: 1px; }
 
-  /* HEADER */
-  header {
-    background: var(--branco);
-    border-bottom: 1px solid var(--bege-escuro);
-    padding: 20px 24px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
+  .hero { background: var(--bege); padding: 36px 24px; text-align: center; border-bottom: 1px solid var(--bege-escuro); }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 6vw, 40px); font-weight: 300; color: var(--verde); line-height: 1.2; margin-bottom: 10px; }
+  .hero h1 em { font-style: italic; }
+  .hero p { font-size: 13px; color: var(--texto-leve); max-width: 300px; margin: 0 auto 20px; line-height: 1.6; }
 
-  .logo-nome {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--verde);
-    letter-spacing: 1px;
-  }
-
-  .logo-slogan {
-    font-size: 11px;
-    color: var(--texto-leve);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-
-  /* HERO */
-  .hero {
-    background: var(--bege);
-    padding: 60px 24px;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 8vw, 56px);
-    font-weight: 300;
-    color: var(--verde);
-    line-height: 1.15;
-    margin-bottom: 16px;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    font-weight: 300;
-  }
-
-  .hero p {
-    font-size: 14px;
-    color: var(--texto-leve);
-    max-width: 320px;
-    margin: 0 auto 32px;
-    line-height: 1.7;
-    letter-spacing: 0.3px;
-  }
-
-  .btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--verde);
-    color: white;
-    text-decoration: none;
-    padding: 14px 28px;
-    font-family: 'Jost', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    transition: background 0.2s;
-  }
-
+  .btn-whatsapp { display: inline-flex; align-items: center; gap: 8px; background: var(--verde); color: white; text-decoration: none; padding: 12px 24px; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; transition: background 0.2s; }
   .btn-whatsapp:hover { background: var(--verde-medio); }
 
-  /* COMO FUNCIONA */
-  .como-funciona {
-    padding: 56px 24px;
-    text-align: center;
-    background: var(--branco);
-  }
+  .catalogo { padding: 48px 24px; background: var(--branco); }
+  .catalogo-header { text-align: center; margin-bottom: 16px; }
+  .secao-titulo { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--verde); margin-bottom: 8px; }
+  .secao-sub { font-size: 12px; color: var(--texto-leve); letter-spacing: 1px; margin-bottom: 8px; }
+  .secao-linha { width: 40px; height: 1px; background: var(--bege-escuro); margin: 12px auto 32px; }
 
-  .secao-titulo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--verde);
-    margin-bottom: 8px;
-  }
+  .filtros { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+  .filtro-btn { padding: 7px 16px; border: 1px solid var(--verde); background: transparent; color: var(--verde); font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+  .filtro-btn.ativo, .filtro-btn:hover { background: var(--verde); color: white; }
 
-  .secao-linha {
-    width: 40px;
-    height: 1px;
-    background: var(--bege-escuro);
-    margin: 12px auto 36px;
-  }
+  .produtos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
 
-  .passos {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .passo {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    text-align: left;
-  }
-
-  .passo-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    font-weight: 300;
-    color: var(--bege-escuro);
-    line-height: 1;
-    min-width: 32px;
-  }
-
-  .passo-texto strong {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--verde);
-    letter-spacing: 0.5px;
-    margin-bottom: 2px;
-  }
-
-  .passo-texto span {
-    font-size: 13px;
-    color: var(--texto-leve);
-  }
-
-  /* CATÁLOGO */
-  .catalogo {
-    padding: 56px 24px;
-    background: var(--bege);
-  }
-
-  .catalogo-header {
-    text-align: center;
-    margin-bottom: 36px;
-  }
-
-  /* FILTROS */
-  .filtros {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 32px;
-  }
-
-  .filtro-btn {
-    padding: 8px 18px;
-    border: 1px solid var(--verde);
-    background: transparent;
-    color: var(--verde);
-    font-family: 'Jost', sans-serif;
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .filtro-btn.ativo, .filtro-btn:hover {
-    background: var(--verde);
-    color: white;
-  }
-
-  /* GRID DE PRODUTOS */
-  .produtos-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .produto-card {
-    background: var(--branco);
-    overflow: hidden;
-  }
-
-  .produto-img {
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
-    background: var(--bege-escuro);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    color: var(--verde);
-  }
-
-  .produto-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .produto-img.placeholder {
-    font-size: 36px;
-  }
-
-  .produto-info {
-    padding: 14px;
-  }
-
-  .produto-categoria {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--texto-leve);
-    margin-bottom: 4px;
-  }
-
-  .produto-nome {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px;
-    font-weight: 400;
-    color: var(--verde);
-    margin-bottom: 4px;
-  }
-
-  .produto-descricao {
-    font-size: 12px;
-    color: var(--texto-leve);
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-
-  .produto-preco {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--verde);
-    margin-bottom: 12px;
-  }
-
-  .btn-pedir {
-    display: block;
-    text-align: center;
-    background: var(--verde);
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-family: 'Jost', sans-serif;
-    transition: background 0.2s;
-  }
-
+  .produto-card { background: var(--branco); border: 1px solid var(--bege-escuro); overflow: hidden; }
+  .produto-img { width: 100%; aspect-ratio: 1; background: var(--bege); overflow: hidden; }
+  .produto-img img { width: 100%; height: 100%; object-fit: cover; }
+  .produto-info { padding: 14px; }
+  .produto-colecao { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--texto-leve); margin-bottom: 2px; }
+  .produto-nome { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 400; color: var(--verde); margin-bottom: 2px; }
+  .produto-recomendado { font-size: 11px; color: var(--texto-leve); font-style: italic; margin-bottom: 8px; }
+  .produto-cores { display: flex; gap: 4px; margin-bottom: 8px; flex-wrap: wrap; }
+  .cor-tag { font-size: 10px; padding: 2px 8px; border: 1px solid var(--bege-escuro); color: var(--texto-leve); letter-spacing: 0.5px; }
+  .produto-modelos { font-size: 11px; color: var(--texto-leve); margin-bottom: 10px; line-height: 1.6; }
+  .produto-preco { font-size: 14px; font-weight: 500; color: var(--verde); margin-bottom: 12px; }
+  .btn-pedir { display: block; text-align: center; background: var(--verde); color: white; text-decoration: none; padding: 10px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Jost', sans-serif; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
   .btn-pedir:hover { background: var(--verde-medio); }
 
-  /* FOOTER */
-  footer {
-    background: var(--verde);
-    color: var(--bege);
-    text-align: center;
-    padding: 48px 24px;
-  }
+  .catalogo-completo { text-align: center; padding: 48px 24px; background: var(--bege); border-top: 1px solid var(--bege-escuro); }
+  .catalogo-completo h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: var(--verde); margin-bottom: 10px; }
+  .catalogo-completo p { font-size: 13px; color: var(--texto-leve); max-width: 300px; margin: 0 auto 24px; line-height: 1.7; }
 
-  footer .logo-nome { color: var(--bege); font-size: 24px; }
-  footer .logo-slogan { color: rgba(245,240,232,0.6); margin-bottom: 24px; }
+  .como-funciona { padding: 48px 24px; text-align: center; background: var(--branco); border-top: 1px solid var(--bege-escuro); }
+  .passos { display: flex; flex-direction: column; gap: 20px; max-width: 400px; margin: 24px auto 0; }
+  .passo { display: flex; align-items: flex-start; gap: 16px; text-align: left; }
+  .passo-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--bege-escuro); line-height: 1; min-width: 28px; }
+  .passo-texto strong { display: block; font-size: 13px; font-weight: 500; color: var(--verde); margin-bottom: 2px; }
+  .passo-texto span { font-size: 12px; color: var(--texto-leve); }
 
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 32px;
-  }
+  .depoimento { padding: 48px 24px; background: var(--verde); text-align: center; }
+  .depoimento-texto { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; font-weight: 300; color: var(--bege); max-width: 320px; margin: 0 auto 16px; line-height: 1.6; }
+  .depoimento-autor { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,240,232,0.5); }
 
-  .footer-links a {
-    color: var(--bege);
-    text-decoration: none;
-    font-size: 13px;
-    opacity: 0.8;
-  }
-
-  .footer-copy {
-    font-size: 11px;
-    opacity: 0.4;
-    letter-spacing: 1px;
-  }
-
-  .btn-whatsapp-footer {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid var(--bege);
-    color: var(--bege);
-    text-decoration: none;
-    padding: 12px 24px;
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-    transition: all 0.2s;
-  }
-
-  .btn-whatsapp-footer:hover {
-    background: var(--bege);
-    color: var(--verde);
-  }
+  footer { background: var(--texto); color: var(--bege); text-align: center; padding: 40px 24px; }
+  footer .logo-nome { color: var(--bege); font-size: 22px; }
+  .footer-slogan { font-size: 10px; color: rgba(245,240,232,0.5); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; margin-top: 2px; }
+  .footer-links { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+  .footer-links a { color: var(--bege); text-decoration: none; font-size: 12px; opacity: 0.7; }
+  .footer-copy { font-size: 10px; opacity: 0.3; letter-spacing: 1px; }
+  .btn-whatsapp-footer { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(245,240,232,0.4); color: var(--bege); text-decoration: none; padding: 11px 22px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 28px; transition: all 0.2s; }
+  .btn-whatsapp-footer:hover { background: var(--bege); color: var(--texto); }
 
   @media (min-width: 600px) {
-    .produtos-grid { grid-template-columns: repeat(3, 1fr); }
+    .produtos-grid { grid-template-columns: repeat(2, 1fr); }
     .passos { flex-direction: row; max-width: 700px; }
     .passo { flex-direction: column; text-align: center; }
+  }
+  @media (min-width: 900px) {
+    .produtos-grid { grid-template-columns: repeat(4, 1fr); }
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo-nome">Cantinho Verde 🌿</div>
-  <div class="logo-slogan">Presentes que florescem, carinho que fica</div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-  <h1>Presentes que<br><em>transformam</em><br>momentos.</h1>
-  <p>Vasos decorativos, suculentas e arranjos feitos sob encomenda com muito carinho. Entrega local em Sabinópolis - MG.</p>
+  <h1>Presentes que florescem,<br><em>carinho que fica.</em></h1>
+  <p>Vasos, suculentas e arranjos sob encomenda. Entrega local em Sabinópolis - MG.</p>
   <a href="https://wa.me/351966073621" class="btn-whatsapp" target="_blank">
-    💬 Fazer pedido
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Fazer pedido
   </a>
 </section>
 
-<!-- COMO FUNCIONA -->
+<section class="catalogo">
+  <div class="catalogo-header">
+    <div class="secao-sub">Coleção</div>
+    <h2 class="secao-titulo">Romana</h2>
+    <div class="secao-linha"></div>
+  </div>
+
+  <div class="filtros">
+    <button class="filtro-btn ativo" onclick="filtrar('vasos', this)">Vasos</button>
+    <button class="filtro-btn" onclick="filtrar('suculentas', this)">Suculentas</button>
+  </div>
+
+  <div class="produtos-grid" id="grid">
+
+    <!-- PRETO -->
+    <div class="produto-card" data-categoria="vasos">
+      <div class="produto-img">
+        <img src="https://drive.google.com/uc?export=view&id=1q-lagnvHWTlGXZWVcQK7ONnIIZkDm3gf" alt="Coleção Romana Preto">
+      </div>
+      <div class="produto-info">
+        <div class="produto-colecao">Coleção Romana</div>
+        <div class="produto-nome">Linha Preta</div>
+        <div class="produto-recomendado">Ideal para sala e varanda</div>
+        <div class="produto-cores">
+          <span class="cor-tag">Preto</span>
+        </div>
+        <div class="produto-modelos">
+          Coluna Nº1 — 35cm · R$ 69,90<br>
+          Coluna Nº2 — 46cm · R$ 99,90<br>
+          Bojo Escovado — 38cm · R$ 89,90<br>
+          Bojo Nº1 — 20cm · R$ 49,90<br>
+          Bacia Nº1 — 13cm · R$ 49,90
+        </div>
+        <div class="produto-preco">A partir de R$ 49,90</div>
+        <a href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Romana%20na%20cor%20Preto%20🌿" class="btn-pedir" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pedir agora
+        </a>
+      </div>
+    </div>
+
+    <!-- CINZA -->
+    <div class="produto-card" data-categoria="vasos">
+      <div class="produto-img">
+        <img src="https://drive.google.com/uc?export=view&id=1lD9NVi3aQzrVdgoOI1uxKf-7atgfeIcn" alt="Coleção Romana Cinza">
+      </div>
+      <div class="produto-info">
+        <div class="produto-colecao">Coleção Romana</div>
+        <div class="produto-nome">Linha Cinza</div>
+        <div class="produto-recomendado">Ideal para sala e escritório</div>
+        <div class="produto-cores">
+          <span class="cor-tag">Cinza</span>
+        </div>
+        <div class="produto-modelos">
+          Coluna Nº1 — 35cm · R$ 69,90<br>
+          Coluna Nº2 — 46cm · R$ 99,90<br>
+          Bojo Escovado — 38cm · R$ 89,90<br>
+          Bojo Nº1 — 20cm · R$ 49,90<br>
+          Bacia Nº1 — 13cm · R$ 49,90
+        </div>
+        <div class="produto-preco">A partir de R$ 49,90</div>
+        <a href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Romana%20na%20cor%20Cinza%20🌿" class="btn-pedir" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pedir agora
+        </a>
+      </div>
+    </div>
+
+    <!-- MARROM -->
+    <div class="produto-card" data-categoria="vasos">
+      <div class="produto-img">
+        <img src="https://drive.google.com/uc?export=view&id=1pEd9ZQFgdL0XFK4azSm2lvF3m70c-dDt" alt="Coleção Romana Marrom">
+      </div>
+      <div class="produto-info">
+        <div class="produto-colecao">Coleção Romana</div>
+        <div class="produto-nome">Linha Terracota</div>
+        <div class="produto-recomendado">Ideal para jardim e varanda</div>
+        <div class="produto-cores">
+          <span class="cor-tag">Terracota</span>
+        </div>
+        <div class="produto-modelos">
+          Coluna Nº1 — 35cm · R$ 69,90<br>
+          Coluna Nº2 — 46cm · R$ 99,90<br>
+          Bojo Escovado — 38cm · R$ 89,90<br>
+          Bojo Nº1 — 20cm · R$ 49,90<br>
+          Bacia Nº1 — 13cm · R$ 49,90
+        </div>
+        <div class="produto-preco">A partir de R$ 49,90</div>
+        <a href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Romana%20na%20cor%20Terracota%20🌿" class="btn-pedir" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pedir agora
+        </a>
+      </div>
+    </div>
+
+    <!-- BEGE -->
+    <div class="produto-card" data-categoria="vasos">
+      <div class="produto-img">
+        <img src="https://drive.google.com/uc?export=view&id=1O6kl_ork1t3540LhH5Y3dQ5BMzntYFrC" alt="Coleção Romana Bege">
+      </div>
+      <div class="produto-info">
+        <div class="produto-colecao">Coleção Romana</div>
+        <div class="produto-nome">Linha Bege</div>
+        <div class="produto-recomendado">Ideal para quarto e sala</div>
+        <div class="produto-cores">
+          <span class="cor-tag">Bege</span>
+        </div>
+        <div class="produto-modelos">
+          Coluna Nº1 — 35cm · R$ 69,90<br>
+          Coluna Nº2 — 46cm · R$ 99,90<br>
+          Bojo Escovado — 38cm · R$ 89,90<br>
+          Bojo Nº1 — 20cm · R$ 49,90<br>
+          Bacia Nº1 — 13cm · R$ 49,90
+        </div>
+        <div class="produto-preco">A partir de R$ 49,90</div>
+        <a href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Romana%20na%20cor%20Bege%20🌿" class="btn-pedir" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pedir agora
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="catalogo-completo">
+  <h3>Tem muito mais esperando por você 🌿</h3>
+  <p>Esses são só alguns dos nossos modelos. Fale conosco e receba o catálogo completo — sem compromisso.</p>
+  <a href="https://wa.me/351966073621?text=Olá!%20Quero%20ver%20o%20catálogo%20completo%20🌿" class="btn-whatsapp" target="_blank" style="display:inline-flex;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Ver catálogo completo
+  </a>
+</div>
+
 <section class="como-funciona">
   <h2 class="secao-titulo">Como funciona?</h2>
   <div class="secao-linha"></div>
   <div class="passos">
     <div class="passo">
       <div class="passo-num">1</div>
-      <div class="passo-texto">
-        <strong>Escolha no catálogo</strong>
-        <span>Navegue pelos produtos abaixo e encontre o seu favorito</span>
-      </div>
+      <div class="passo-texto"><strong>Escolha o produto</strong><span>Navegue pelo catálogo e encontre o seu favorito</span></div>
     </div>
     <div class="passo">
       <div class="passo-num">2</div>
-      <div class="passo-texto">
-        <strong>Chame no WhatsApp</strong>
-        <span>Clique em "Pedir agora" e fale direto com a gente</span>
-      </div>
+      <div class="passo-texto"><strong>Chame no WhatsApp</strong><span>Fale direto conosco e confirme seu pedido</span></div>
     </div>
     <div class="passo">
       <div class="passo-num">3</div>
-      <div class="passo-texto">
-        <strong>Confirme com 50%</strong>
-        <span>Entrada para garantir seu pedido e combinamos a entrega</span>
-      </div>
-    </div>
-    <div class="passo">
-      <div class="passo-num">4</div>
-      <div class="passo-texto">
-        <strong>Receba em casa</strong>
-        <span>Entregamos em Sabinópolis com todo o cuidado 🌿</span>
-      </div>
+      <div class="passo-texto"><strong>Receba em casa</strong><span>Entregamos em Sabinópolis com todo o cuidado 🌿</span></div>
     </div>
   </div>
 </section>
 
-<!-- CATÁLOGO -->
-<section class="catalogo">
-  <div class="catalogo-header">
-    <h2 class="secao-titulo">Catálogo</h2>
-    <div class="secao-linha"></div>
-  </div>
-
-  <div class="filtros">
-    <button class="filtro-btn ativo" onclick="filtrar('todos', this)">Todos</button>
-    <button class="filtro-btn" onclick="filtrar('vasos', this)">Vasos</button>
-    <button class="filtro-btn" onclick="filtrar('suculentas', this)">Suculentas</button>
-    <button class="filtro-btn" onclick="filtrar('presentes', this)">Presentes</button>
-  </div>
-
-  <div class="produtos-grid" id="grid">
-
-    <!-- ===== PRODUTOS — edite aqui ===== -->
-    <!-- Para adicionar produto: copie um bloco .produto-card e cole abaixo -->
-    <!-- Para trocar imagem: substitua o emoji por <img src="URL_DA_FOTO"> dentro de .produto-img -->
-
-    <div class="produto-card" data-categoria="vasos">
-      <div class="produto-img placeholder">🏺</div>
-      <div class="produto-info">
-        <div class="produto-categoria">Vasos</div>
-        <div class="produto-nome">Vaso Decorativo</div>
-        <div class="produto-descricao">Adicione aqui a descrição do produto.</div>
-        <div class="produto-preco">A partir de R$ 00,00</div>
-        <a href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20no%20Vaso%20Decorativo%20🌿" class="btn-pedir" target="_blank">Pedir agora</a>
-      </div>
-    </div>
-
-    <div class="produto-card" data-categoria="suculentas">
-      <div class="produto-img placeholder">🌵</div>
-      <div class="produto-info">
-        <div class="produto-categoria">Suculentas</div>
-        <div class="produto-nome">Suculenta</div>
-        <div class="produto-descricao">Adicione aqui a descrição do produto.</div>
-        <div class="produto-preco">A partir de R$ 00,00</div>
-        <a href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Suculenta%20🌵" class="btn-pedir" target="_blank">Pedir agora</a>
-      </div>
-    </div>
-
-    <div class="produto-card" data-categoria="presentes">
-      <div class="produto-img placeholder">🎁</div>
-      <div class="produto-info">
-        <div class="produto-categoria">Presentes</div>
-        <div class="produto-nome">Arranjo Presente</div>
-        <div class="produto-descricao">Adicione aqui a descrição do produto.</div>
-        <div class="produto-preco">A partir de R$ 00,00</div>
-        <a href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20no%20Arranjo%20Presente%20🎁" class="btn-pedir" target="_blank">Pedir agora</a>
-      </div>
-    </div>
-
-    <div class="produto-card" data-categoria="vasos">
-      <div class="produto-img placeholder">🏺</div>
-      <div class="produto-info">
-        <div class="produto-categoria">Vasos</div>
-        <div class="produto-nome">Vaso Decorativo</div>
-        <div class="produto-descricao">Adicione aqui a descrição do produto.</div>
-        <div class="produto-preco">A partir de R$ 00,00</div>
-        <a href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20no%20Vaso%20Decorativo%20🌿" class="btn-pedir" target="_blank">Pedir agora</a>
-      </div>
-    </div>
-
-    <!-- ===== FIM DOS PRODUTOS ===== -->
-
-  </div>
+<section class="depoimento">
+  <div class="depoimento-texto">"Adicione aqui o depoimento do primeiro cliente satisfeito."</div>
+  <div class="depoimento-autor">— Nome do cliente, Sabinópolis</div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="logo-nome">Cantinho Verde 🌿</div>
-  <div class="logo-slogan" style="margin-bottom:28px">Presentes que florescem, carinho que fica</div>
+  <div class="footer-slogan">Presentes que florescem, carinho que fica</div>
   <a href="https://wa.me/351966073621" class="btn-whatsapp-footer" target="_blank">
-    💬 Chamar no WhatsApp
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Chamar no WhatsApp
   </a>
   <div class="footer-links">
-    <a href="https://instagram.com/cantinhoverde" target="_blank">📸 Instagram</a>
-    <div style="font-size:12px;opacity:0.5">📍 Sabinópolis - MG | Entrega local</div>
+    <a href="https://instagram.com/cantinhoverdemg" target="_blank">📸 @cantinhoverdemg</a>
+    <div style="font-size:11px;opacity:0.4;margin-top:4px">📍 Sabinópolis - MG | Entrega local</div>
   </div>
   <div class="footer-copy">© 2026 Cantinho Verde. Todos os direitos reservados.</div>
 </footer>
@@ -483,14 +281,9 @@ function filtrar(categoria, btn) {
   document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
   btn.classList.add('ativo');
   document.querySelectorAll('.produto-card').forEach(card => {
-    if (categoria === 'todos' || card.dataset.categoria === categoria) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
+    card.style.display = card.dataset.categoria === categoria ? 'block' : 'none';
   });
 }
 </script>
-
 </body>
 </html>
