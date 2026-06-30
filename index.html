@@ -3,299 +3,314 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cantinho Verde 🌿 | Vasos, suculentas e arranjos em Sabinópolis-MG</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Cantinho Verde 🌿</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --verde:#1B4332;
-    --bege:#F5F0E8;
-    --offwhite:#FAFAF7;
-    --verde-claro:#2D6A4F;
-    --texto:#2A2A28;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --verde: #1B4332;
+    --verde-medio: #2D6A4F;
+    --bege: #F5F0E8;
+    --bege-escuro: #E8E0D0;
+    --branco: #FAFAF7;
+    --texto: #2C2C2C;
+    --texto-leve: #6B6B6B;
   }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:'Jost',sans-serif;color:var(--texto);background:var(--offwhite);line-height:1.6;}
-  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;}
-  a{text-decoration:none;color:inherit;}
-  .container{max-width:1100px;margin:0 auto;padding:0 22px;}
-
-  /* HERO */
-  header.hero{
-    background:var(--bege);
-    text-align:center;
-    padding:70px 22px 60px;
-  }
-  .hero .marca{font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;color:var(--verde);font-weight:500;margin-bottom:18px;}
-  .hero h1{font-size:2.9rem;color:var(--verde);line-height:1.2;font-style:italic;}
-  .hero p.sub{font-size:1.05rem;max-width:480px;margin:18px auto 30px;color:#555;}
-  .btn{
-    display:inline-block;background:var(--verde);color:#fff;
-    padding:14px 34px;border-radius:40px;font-weight:500;
-    letter-spacing:.5px;font-size:.95rem;transition:.25s;border:none;cursor:pointer;
-  }
-  .btn:hover{background:var(--verde-claro);transform:translateY(-2px);}
-  .btn-bege{background:var(--bege);color:var(--verde);}
-
-  /* SECTION TITLE */
-  .sec-title{text-align:center;margin:60px 0 38px;}
-  .sec-title span{font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--verde-claro);}
-  .sec-title h2{font-size:2.2rem;color:var(--verde);margin-top:6px;}
-
-  /* COLLECTIONS */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
-  .card{
-    background:#fff;border-radius:16px;overflow:hidden;
-    box-shadow:0 6px 22px rgba(27,67,50,.07);display:flex;flex-direction:column;
-  }
-  .card .foto{
-    height:260px;background:var(--bege);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--verde);font-size:.85rem;letter-spacing:1px;text-align:center;position:relative;
-  }
-  .card .foto small{opacity:.6;padding:0 20px;}
-  .card-body{padding:22px;display:flex;flex-direction:column;flex:1;}
-  .card-body .colname{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--verde-claro);}
-  .card-body h3{font-size:1.55rem;color:var(--verde);margin:2px 0 4px;}
-  .card-body .desc{font-size:.9rem;color:#666;margin-bottom:14px;}
-  .cores{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
-  .cores button{
-    border:1px solid #ddd;background:#fff;border-radius:20px;
-    padding:5px 14px;font-size:.78rem;cursor:pointer;font-family:'Jost';transition:.2s;
-  }
-  .cores button.ativo{background:var(--verde);color:#fff;border-color:var(--verde);}
-  .toggle-precos{
-    background:none;border:none;color:var(--verde);font-family:'Jost';
-    font-size:.85rem;cursor:pointer;text-decoration:underline;padding:0;margin-bottom:10px;text-align:left;
-  }
-  .precos{display:none;font-size:.85rem;color:#444;margin-bottom:14px;}
-  .precos.show{display:block;}
-  .precos div{padding:5px 0;border-bottom:1px dashed #eee;}
-  .preco-base{font-family:'Cormorant Garamond';font-size:1.3rem;color:var(--verde);font-style:italic;margin-bottom:12px;}
-  .card-body .btn{margin-top:auto;text-align:center;}
-
-  /* CATALOGO CTA */
-  .catalogo{background:var(--verde);color:var(--offwhite);text-align:center;padding:70px 22px;margin-top:70px;}
-  .catalogo h2{font-size:2.3rem;font-style:italic;margin-bottom:14px;}
-  .catalogo p{max-width:480px;margin:0 auto 28px;opacity:.9;}
-
-  /* COMO FUNCIONA */
-  .passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;}
-  .passo{text-align:center;}
-  .passo .num{
-    width:54px;height:54px;border-radius:50%;background:var(--bege);color:var(--verde);
-    display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond';
-    font-size:1.6rem;margin:0 auto 14px;
-  }
-  .passo h3{font-size:1.35rem;color:var(--verde);margin-bottom:6px;}
-  .passo p{font-size:.9rem;color:#666;}
-
-  /* AVISO ENCOMENDA */
-  .aviso{
-    background:var(--bege);border-radius:14px;text-align:center;
-    padding:26px;max-width:640px;margin:40px auto 0;
-  }
-  .aviso p{color:var(--verde);font-size:.95rem;}
-
-  /* FOOTER */
-  footer{background:#142e22;color:var(--offwhite);text-align:center;padding:54px 22px 30px;margin-top:70px;}
-  footer .fmarca{font-family:'Cormorant Garamond';font-size:1.8rem;font-style:italic;margin-bottom:6px;}
-  footer .fslogan{opacity:.8;font-size:.9rem;margin-bottom:22px;}
-  footer .links{display:flex;flex-direction:column;gap:8px;font-size:.9rem;margin-bottom:24px;}
-  footer .links a:hover{color:#95D5B2;}
-  footer .copy{font-size:.75rem;opacity:.55;}
-
-  @media(max-width:600px){
-    .hero h1{font-size:2.2rem;}
-    .sec-title h2{font-size:1.8rem;}
+  body { font-family: 'Jost', sans-serif; background: var(--branco); color: var(--texto); font-weight: 300; }
+  header { background: var(--branco); border-bottom: 1px solid var(--bege-escuro); padding: 16px 24px; text-align: center; position: sticky; top: 0; z-index: 100; }
+  .logo-nome { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--verde); letter-spacing: 1px; }
+  .hero { background: var(--bege); padding: 36px 24px; text-align: center; border-bottom: 1px solid var(--bege-escuro); }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 6vw, 40px); font-weight: 300; color: var(--verde); line-height: 1.2; margin-bottom: 10px; }
+  .hero h1 em { font-style: italic; }
+  .hero p { font-size: 13px; color: var(--texto-leve); max-width: 300px; margin: 0 auto 20px; line-height: 1.6; }
+  .btn-whatsapp { display: inline-flex; align-items: center; gap: 8px; background: var(--verde); color: white; text-decoration: none; padding: 12px 24px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; transition: background 0.2s; }
+  .btn-whatsapp:hover { background: var(--verde-medio); }
+  .secao-titulo { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--verde); margin-bottom: 8px; }
+  .secao-sub { font-size: 12px; color: var(--texto-leve); letter-spacing: 1px; margin-bottom: 8px; }
+  .secao-linha { width: 40px; height: 1px; background: var(--bege-escuro); margin: 12px auto 32px; }
+  .colecao { padding: 48px 24px; }
+  .colecao:nth-child(odd) { background: var(--branco); }
+  .colecao:nth-child(even) { background: var(--bege); }
+  .colecao-header { text-align: center; margin-bottom: 24px; }
+  .colecao-card { max-width: 480px; margin: 0 auto; border: 1px solid var(--bege-escuro); background: var(--branco); }
+  .produto-img { width: 100%; aspect-ratio: 1; overflow: hidden; background: var(--bege); }
+  .produto-img img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s; }
+  .produto-info { padding: 16px; }
+  .produto-colecao { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--texto-leve); margin-bottom: 2px; }
+  .produto-nome { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--verde); margin-bottom: 4px; }
+  .produto-recomendado { font-size: 11px; color: var(--texto-leve); font-style: italic; margin-bottom: 12px; }
+  .cor-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--texto-leve); margin-bottom: 8px; }
+  .cor-selecionada { color: var(--verde); font-weight: 500; }
+  .cores-btns { display: flex; gap: 8px; margin-bottom: 14px; }
+  .cor-btn { width: 30px; height: 30px; border: 2px solid transparent; cursor: pointer; transition: border 0.2s; }
+  .cor-btn.ativo { border-color: var(--verde); }
+  .btn-modelos { width: 100%; text-align: center; border: 1px solid var(--verde); color: var(--verde); padding: 8px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Jost', sans-serif; cursor: pointer; background: transparent; margin-bottom: 12px; transition: all 0.2s; }
+  .btn-modelos:hover { background: var(--bege); }
+  .modelos-lista { display: none; background: var(--bege); padding: 12px 14px; margin-bottom: 12px; font-size: 12px; color: var(--texto-leve); line-height: 2; }
+  .modelos-lista.aberto { display: block; }
+  .produto-preco { font-size: 14px; font-weight: 500; color: var(--verde); margin-bottom: 14px; }
+  .btn-pedir { display: flex; align-items: center; justify-content: center; gap: 6px; text-align: center; background: var(--verde); color: white; text-decoration: none; padding: 11px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Jost', sans-serif; transition: background 0.2s; }
+  .btn-pedir:hover { background: var(--verde-medio); }
+  .catalogo-completo { text-align: center; padding: 48px 24px; background: var(--verde); }
+  .catalogo-completo h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: var(--bege); margin-bottom: 10px; }
+  .catalogo-completo p { font-size: 13px; color: rgba(245,240,232,0.7); max-width: 300px; margin: 0 auto 24px; line-height: 1.7; }
+  .btn-whatsapp-outline { display: inline-flex; align-items: center; gap: 8px; background: var(--bege); color: var(--verde); text-decoration: none; padding: 14px 32px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.2s; font-weight: 500; }
+  .btn-whatsapp-outline:hover { background: var(--bege-escuro); }
+  .como-funciona { padding: 48px 24px; text-align: center; background: var(--branco); border-top: 1px solid var(--bege-escuro); }
+  .passos { display: flex; flex-direction: column; gap: 20px; max-width: 400px; margin: 24px auto 0; }
+  .passo { display: flex; align-items: flex-start; gap: 16px; text-align: left; }
+  .passo-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--bege-escuro); line-height: 1; min-width: 28px; }
+  .passo-texto strong { display: block; font-size: 13px; font-weight: 500; color: var(--verde); margin-bottom: 2px; }
+  .passo-texto span { font-size: 12px; color: var(--texto-leve); }
+  .depoimento { padding: 48px 24px; background: var(--bege); text-align: center; border-top: 1px solid var(--bege-escuro); }
+  .depoimento-texto { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; font-weight: 300; color: var(--verde); max-width: 320px; margin: 0 auto 16px; line-height: 1.6; }
+  .depoimento-autor { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--texto-leve); }
+  footer { background: var(--texto); color: var(--bege); text-align: center; padding: 40px 24px; }
+  footer .logo-nome { color: var(--bege); font-size: 22px; }
+  .footer-slogan { font-size: 10px; color: rgba(245,240,232,0.5); letter-spacing: 2px; text-transform: uppercase; margin: 4px 0 24px; }
+  .footer-links { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+  .footer-links a { color: var(--bege); text-decoration: none; font-size: 12px; opacity: 0.7; }
+  .footer-copy { font-size: 10px; opacity: 0.3; letter-spacing: 1px; }
+  @media (min-width: 600px) {
+    .passos { flex-direction: row; max-width: 700px; }
+    .passo { flex-direction: column; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="marca">Cantinho Verde 🌿</div>
-  <h1>Presentes que florescem,<br>carinho que fica.</h1>
-  <p class="sub">Vasos, suculentas e arranjos sob encomenda, feitos com cuidado em Sabinópolis - MG.</p>
-  <a class="btn" href="https://wa.me/351966073621?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8C%BF" target="_blank">Fazer pedido pelo WhatsApp</a>
+<header>
+  <div class="logo-nome">Cantinho Verde 🌿</div>
 </header>
 
-<!-- COLEÇÕES -->
-<section class="container">
-  <div class="sec-title">
-    <span>Nossas coleções</span>
-    <h2>Escolha o seu favorito</h2>
+<section class="hero">
+  <h1>Presentes que florescem,<br><em>carinho que fica.</em></h1>
+  <p>Vasos, suculentas e arranjos sob encomenda. Entrega local em Sabinópolis - MG.</p>
+  <a href="https://wa.me/351966073621" class="btn-whatsapp" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Fazer pedido
+  </a>
+</section>
+
+<!-- COLEÇÃO ROMANA -->
+<section class="colecao">
+  <div class="colecao-header">
+    <div class="secao-sub">Coleção</div>
+    <h2 class="secao-titulo">Romana</h2>
+    <div class="secao-linha"></div>
   </div>
-
-  <div class="grid">
-
-    <!-- ROMANA -->
-    <div class="card">
-      <div class="foto"><small>[ Foto coleção Romana<br>— em breve ]</small></div>
-      <div class="card-body">
-        <div class="colname">Coleção</div>
-        <h3>Romana</h3>
-        <div class="desc">Vasos decorativos · ideal para sala e varanda</div>
-        <div class="cores">
-          <button class="ativo">Off-white</button>
-          <button>Bege</button>
-          <button>Preto</button>
-        </div>
-        <button class="toggle-precos" onclick="toggle(this)">Ver modelos e preços ↓</button>
-        <div class="precos">
-          <div>Coluna Nº1 — 35cm · R$ 69,90</div>
-          <div>Coluna Nº2 — 46cm · R$ 99,90</div>
-          <div>Bojo Escovado — 38cm · R$ 89,90</div>
-          <div>Bojo Nº1 — 20cm · R$ 49,90</div>
-          <div>Bacia Nº1 — 13cm · R$ 49,90</div>
-        </div>
-        <div class="preco-base">a partir de R$ 49,90</div>
-        <a class="btn" href="https://wa.me/351966073621?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Cole%C3%A7%C3%A3o%20Romana%20%F0%9F%8C%BF" target="_blank">Pedir agora</a>
-      </div>
+  <div class="colecao-card">
+    <div class="produto-img">
+      <img id="foto-romana" src="https://cantinhoverdemg.github.io/cantinhoverdemg/preto.jpeg" alt="Coleção Romana">
     </div>
-
-    <!-- BOB GREEN -->
-    <div class="card">
-      <div class="foto"><small>[ Foto coleção Bob Green<br>— em breve ]</small></div>
-      <div class="card-body">
-        <div class="colname">Coleção</div>
-        <h3>Bob Green</h3>
-        <div class="desc">Vasinhos 3D · perfeito para presentear</div>
-        <div class="cores">
-          <button class="ativo">Kit</button>
-          <button>Unidade</button>
-        </div>
-        <button class="toggle-precos" onclick="toggle(this)">Ver opções e preços ↓</button>
-        <div class="precos">
-          <div>Vaso individual (10cm) · a partir de R$ 19,90</div>
-          <div>Kit 1 — 1 vaso + terra + suculenta · R$ 29,90</div>
-          <div>Kit 2 — 2 vasos + terra + suculentas · R$ 34,90</div>
-          <div>Kit 3 — 3 vasos + terra + suculentas · R$ 49,90</div>
-        </div>
-        <div class="preco-base">a partir de R$ 19,90</div>
-        <a class="btn" href="https://wa.me/351966073621?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Cole%C3%A7%C3%A3o%20Bob%20Green%20%F0%9F%8C%BF" target="_blank">Pedir agora</a>
+    <div class="produto-info">
+      <div class="produto-colecao">Coleção Romana</div>
+      <div class="produto-nome">Vasos Decorativos</div>
+      <div class="produto-recomendado" id="rec-romana">Ideal para sala e varanda</div>
+      <div class="cor-label">Cor: <span class="cor-selecionada" id="cor-romana">Preto</span></div>
+      <div class="cores-btns">
+        <button class="cor-btn ativo" style="background:#2C2C2C" title="Preto" onclick="trocarCor('romana','preto.jpeg','Preto','Ideal para sala e varanda',this)"></button>
+        <button class="cor-btn" style="background:#9E9E9E" title="Cimento" onclick="trocarCor('romana','cinzqa.jpeg','Cimento','Ideal para sala e escritório',this)"></button>
+        <button class="cor-btn" style="background:#8B4513" title="Marrom" onclick="trocarCor('romana','terra.jpeg','Marrom','Ideal para jardim e varanda',this)"></button>
+        <button class="cor-btn" style="background:#D4B896" title="Bege" onclick="trocarCor('romana','beje.jpeg','Bege','Ideal para quarto e sala',this)"></button>
       </div>
-    </div>
-
-    <!-- DIAMANTE -->
-    <div class="card">
-      <div class="foto"><small>[ Foto coleção Diamante<br>— em breve ]</small></div>
-      <div class="card-body">
-        <div class="colname">Coleção</div>
-        <h3>Diamante</h3>
-        <div class="desc">Vasos decorativos · ideal para sala e varanda</div>
-        <div class="cores">
-          <button class="ativo">Off-white</button>
-          <button>Bege</button>
-          <button>Preto</button>
-        </div>
-        <button class="toggle-precos" onclick="toggle(this)">Ver modelos e preços ↓</button>
-        <div class="precos">
-          <div>Coluna Nº1 — 29cm · R$ 59,90</div>
-          <div>Coluna Nº2 — 42cm · R$ 79,90</div>
-          <div>Bojo Diamante — 20cm · R$ 49,90</div>
-          <div>Bacia — 13cm · R$ 39,90</div>
-        </div>
-        <div class="preco-base">a partir de R$ 39,90</div>
-        <a class="btn" href="https://wa.me/351966073621?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Cole%C3%A7%C3%A3o%20Diamante%20%F0%9F%8C%BF" target="_blank">Pedir agora</a>
+      <div class="modelos-lista" id="modelos-romana">
+        Coluna Nº1 — 35cm · R$ 69,90<br>
+        Coluna Nº2 — 46cm · R$ 99,90<br>
+        Bojo Escovado — 38cm · R$ 89,90<br>
+        Bojo Nº1 — 20cm · R$ 49,90<br>
+        Bacia Nº1 — 13cm · R$ 49,90
       </div>
+      <button class="btn-modelos" onclick="toggleModelos('romana',this)">Ver modelos e preços</button>
+      <div class="produto-preco">A partir de R$ 49,90</div>
+      <a class="btn-pedir" id="pedir-romana" href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Romana%20cor%20Preto%20🌿" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir agora
+      </a>
     </div>
-
-    <!-- TEXTURIZADA -->
-    <div class="card">
-      <div class="foto"><small>[ Foto coleção Texturizada<br>— em breve ]</small></div>
-      <div class="card-body">
-        <div class="colname">Coleção</div>
-        <h3>Texturizada</h3>
-        <div class="desc">Vasos decorativos · ideal para sala e varanda</div>
-        <div class="cores">
-          <button class="ativo">Off-white</button>
-          <button>Bege</button>
-          <button>Preto</button>
-        </div>
-        <button class="toggle-precos" onclick="toggle(this)">Ver modelos e preços ↓</button>
-        <div class="precos">
-          <div>Coluna Nº1 — 28cm · R$ 59,90</div>
-          <div>Coluna Nº2 — 39cm · R$ 79,90</div>
-          <div>Bojo Nº1 — 19cm · R$ 49,90</div>
-          <div>Bacia Nº1 — 13cm · R$ 39,90</div>
-        </div>
-        <div class="preco-base">a partir de R$ 39,90</div>
-        <a class="btn" href="https://wa.me/351966073621?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Cole%C3%A7%C3%A3o%20Texturizada%20%F0%9F%8C%BF" target="_blank">Pedir agora</a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- AVISO SOB ENCOMENDA -->
-  <div class="aviso">
-    <p>🌿 Trabalhamos <strong>sob encomenda</strong>: você confirma o pedido pelo WhatsApp com <strong>50% de entrada</strong> e combinamos a entrega local em Sabinópolis. Simples e com todo o cuidado.</p>
   </div>
 </section>
 
-<!-- CATALOGO CTA -->
-<section class="catalogo">
-  <h2>Tem muito mais esperando por você 🌿</h2>
-  <p>Esses são só alguns dos nossos modelos. Fale com a gente e receba o catálogo completo — sem compromisso.</p>
-  <a class="btn btn-bege" href="https://wa.me/351966073621?text=Ol%C3%A1!%20Quero%20receber%20o%20cat%C3%A1logo%20completo%20%F0%9F%8C%BF" target="_blank">Ver catálogo completo</a>
+<!-- BOB GREEN -->
+<section class="colecao">
+  <div class="colecao-header">
+    <div class="secao-sub">Coleção</div>
+    <h2 class="secao-titulo">Bob Green</h2>
+    <div class="secao-linha"></div>
+  </div>
+  <div class="colecao-card">
+    <div class="produto-img">
+      <img id="foto-bob" src="https://cantinhoverdemg.github.io/cantinhoverdemg/kitbob.png" alt="Bob Green">
+    </div>
+    <div class="produto-info">
+      <div class="produto-colecao">Coleção Bob Green</div>
+      <div class="produto-nome">Vasinhos Decorativos 3D</div>
+      <div class="produto-recomendado" id="rec-bob">Perfeito para presente e decoração</div>
+      <div class="cor-label">Opção: <span class="cor-selecionada" id="cor-bob">Kit</span></div>
+      <div class="cores-btns">
+        <button class="cor-btn ativo" style="background:var(--verde);color:white;font-size:9px;letter-spacing:0;font-family:Jost,sans-serif;width:auto;padding:0 10px;" onclick="trocarCor('bob','kitbob.png','Kit','Perfeito para presente e decoração',this)">Kit</button>
+        <button class="cor-btn" style="background:transparent;border:1px solid var(--verde);color:var(--verde);font-size:9px;letter-spacing:0;font-family:Jost,sans-serif;width:auto;padding:0 10px;" onclick="trocarCor('bob','unidade%20.png','Unidade','Ideal para decorar qualquer cantinho',this)">Unidade</button>
+      </div>
+      <div class="modelos-lista" id="modelos-bob">
+        Vaso Individual (10cm) · A partir de R$ 19,90<br>
+        Kit 1 — 1 vaso + terra + suculenta · A partir de R$ 29,90<br>
+        Kit 2 — 2 vasos + terra + suculentas · A partir de R$ 34,90<br>
+        Kit 3 — 3 vasos + terra + suculentas · A partir de R$ 49,90
+      </div>
+      <button class="btn-modelos" onclick="toggleModelos('bob',this)">Ver opções e preços</button>
+      <div class="produto-preco">A partir de R$ 19,90</div>
+      <a class="btn-pedir" id="pedir-bob" href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Bob%20Green%20🌿" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir agora
+      </a>
+    </div>
+  </div>
 </section>
+
+<!-- COLEÇÃO DIAMANTE -->
+<section class="colecao">
+  <div class="colecao-header">
+    <div class="secao-sub">Coleção</div>
+    <h2 class="secao-titulo">Diamante</h2>
+    <div class="secao-linha"></div>
+  </div>
+  <div class="colecao-card">
+    <div class="produto-img">
+      <img id="foto-diamante" src="https://cantinhoverdemg.github.io/cantinhoverdemg/dia.preto.jpeg" alt="Coleção Diamante">
+    </div>
+    <div class="produto-info">
+      <div class="produto-colecao">Coleção Diamante</div>
+      <div class="produto-nome">Vasos Decorativos</div>
+      <div class="produto-recomendado" id="rec-diamante">Ideal para sala e varanda</div>
+      <div class="cor-label">Cor: <span class="cor-selecionada" id="cor-diamante">Preto</span></div>
+      <div class="cores-btns">
+        <button class="cor-btn ativo" style="background:#2C2C2C" title="Preto" onclick="trocarCor('diamante','dia.preto.jpeg','Preto','Ideal para sala e varanda',this)"></button>
+        <button class="cor-btn" style="background:#9E9E9E" title="Cimento" onclick="trocarCor('diamante','dia.cinza.jpeg','Cimento','Ideal para sala e escritório',this)"></button>
+        <button class="cor-btn" style="background:#8B4513" title="Marrom" onclick="trocarCor('diamante','dia.marron.jpeg','Marrom','Ideal para jardim e varanda',this)"></button>
+        <button class="cor-btn" style="background:#D4B896" title="Bege" onclick="trocarCor('diamante','dia.bege.jpeg','Bege','Ideal para quarto e sala',this)"></button>
+      </div>
+      <div class="modelos-lista" id="modelos-diamante">
+        Coluna Nº1 — 29cm · R$ 59,90<br>
+        Coluna Nº2 — 42cm · R$ 79,90<br>
+        Bojo Diamante — 20cm · R$ 49,90<br>
+        Bacia — 13cm · R$ 39,90
+      </div>
+      <button class="btn-modelos" onclick="toggleModelos('diamante',this)">Ver modelos e preços</button>
+      <div class="produto-preco">A partir de R$ 39,90</div>
+      <a class="btn-pedir" id="pedir-diamante" href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Diamante%20cor%20Preto%20🌿" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir agora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TEXTURIZADA -->
+<section class="colecao">
+  <div class="colecao-header">
+    <div class="secao-sub">Coleção</div>
+    <h2 class="secao-titulo">Texturizada</h2>
+    <div class="secao-linha"></div>
+  </div>
+  <div class="colecao-card">
+    <div class="produto-img">
+      <img id="foto-txt" src="https://cantinhoverdemg.github.io/cantinhoverdemg/txtpreto.png" alt="Coleção Texturizada">
+    </div>
+    <div class="produto-info">
+      <div class="produto-colecao">Coleção Texturizada</div>
+      <div class="produto-nome">Vasos Decorativos</div>
+      <div class="produto-recomendado" id="rec-txt">Ideal para sala e varanda</div>
+      <div class="cor-label">Cor: <span class="cor-selecionada" id="cor-txt">Preto</span></div>
+      <div class="cores-btns">
+        <button class="cor-btn ativo" style="background:#2C2C2C" title="Preto" onclick="trocarCor('txt','txtpreto.png','Preto','Ideal para sala e varanda',this)"></button>
+        <button class="cor-btn" style="background:#9E9E9E" title="Cimento" onclick="trocarCor('txt','txtcim.png','Cimento','Ideal para sala e escritório',this)"></button>
+        <button class="cor-btn" style="background:#8B4513" title="Marrom" onclick="trocarCor('txt','txtmarron.png','Marrom','Ideal para jardim e varanda',this)"></button>
+        <button class="cor-btn" style="background:#D4B896" title="Bege" onclick="trocarCor('txt','txtbege.png','Bege','Ideal para quarto e sala',this)"></button>
+      </div>
+      <div class="modelos-lista" id="modelos-txt">
+        Coluna Nº1 — 28cm · R$ 59,90<br>
+        Coluna Nº2 — 39cm · R$ 79,90<br>
+        Bojo Nº1 — 19cm · R$ 49,90<br>
+        Bacia Nº1 — 13cm · R$ 39,90
+      </div>
+      <button class="btn-modelos" onclick="toggleModelos('txt',this)">Ver modelos e preços</button>
+      <div class="produto-preco">A partir de R$ 39,90</div>
+      <a class="btn-pedir" id="pedir-txt" href="https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20Texturizada%20cor%20Preto%20🌿" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir agora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO COMPLETO -->
+<div class="catalogo-completo">
+  <h3>Tem muito mais esperando por você 🌿</h3>
+  <p>Esses são só alguns dos nossos modelos. Fale conosco e receba o catálogo completo — sem compromisso.</p>
+  <a href="https://wa.me/351966073621?text=Olá!%20Quero%20ver%20o%20catálogo%20completo%20🌿" class="btn-whatsapp-outline" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Ver catálogo completo
+  </a>
+</div>
 
 <!-- COMO FUNCIONA -->
-<section class="container">
-  <div class="sec-title">
-    <span>Simples assim</span>
-    <h2>Como funciona</h2>
-  </div>
+<section class="como-funciona">
+  <h2 class="secao-titulo">Como funciona?</h2>
+  <div class="secao-linha"></div>
   <div class="passos">
     <div class="passo">
-      <div class="num">1</div>
-      <h3>Escolha</h3>
-      <p>Navegue pelas coleções e encontre o seu favorito.</p>
+      <div class="passo-num">1</div>
+      <div class="passo-texto"><strong>Escolha o produto</strong><span>Navegue pelo catálogo e encontre o seu favorito</span></div>
     </div>
     <div class="passo">
-      <div class="num">2</div>
-      <h3>Chame no WhatsApp</h3>
-      <p>Fale direto com a gente e confirme seu pedido com 50% de entrada.</p>
+      <div class="passo-num">2</div>
+      <div class="passo-texto"><strong>Chame no WhatsApp</strong><span>Fale direto conosco e confirme seu pedido</span></div>
     </div>
     <div class="passo">
-      <div class="num">3</div>
-      <h3>Entrega local</h3>
-      <p>Combinamos a entrega em Sabinópolis, com todo o carinho 🌿</p>
+      <div class="passo-num">3</div>
+      <div class="passo-texto"><strong>Receba em casa</strong><span>Entregamos em Sabinópolis com todo o cuidado 🌿</span></div>
     </div>
   </div>
+</section>
+
+<!-- DEPOIMENTO -->
+<section class="depoimento">
+  <div class="depoimento-texto">"Adicione aqui o depoimento do primeiro cliente satisfeito."</div>
+  <div class="depoimento-autor">— Nome do cliente, Sabinópolis</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="fmarca">Cantinho Verde 🌿</div>
-  <div class="fslogan">Presentes que florescem, carinho que fica.</div>
-  <div class="links">
+  <div class="logo-nome">Cantinho Verde 🌿</div>
+  <div class="footer-slogan">Presentes que florescem, carinho que fica</div>
+  <div class="footer-links">
     <a href="https://instagram.com/cantinhoverdemg" target="_blank">📸 @cantinhoverdemg</a>
     <a href="https://wa.me/351966073621" target="_blank">💬 WhatsApp</a>
-    <span>📍 Sabinópolis - MG · Entrega local</span>
+    <div style="font-size:11px;opacity:0.4;margin-top:4px">📍 Sabinópolis - MG | Entrega local</div>
   </div>
-  <div class="copy">© 2026 Cantinho Verde. Todos os direitos reservados.</div>
+  <div class="footer-copy">© 2026 Cantinho Verde. Todos os direitos reservados.</div>
 </footer>
 
 <script>
-  function toggle(btn){
-    const precos = btn.nextElementSibling;
-    precos.classList.toggle('show');
-    btn.textContent = precos.classList.contains('show')
-      ? btn.textContent.replace('↓','↑')
-      : btn.textContent.replace('↑','↓');
-  }
-  // seletor de cores
-  document.querySelectorAll('.cores').forEach(grupo=>{
-    grupo.querySelectorAll('button').forEach(b=>{
-      b.addEventListener('click',()=>{
-        grupo.querySelectorAll('button').forEach(x=>x.classList.remove('ativo'));
-        b.classList.add('ativo');
-      });
-    });
-  });
+const base = 'https://cantinhoverdemg.github.io/cantinhoverdemg/';
+
+function trocarCor(colecao, foto, cor, rec, btn) {
+  document.getElementById('foto-' + colecao).src = base + foto;
+  document.getElementById('cor-' + colecao).textContent = cor;
+  document.getElementById('rec-' + colecao).textContent = rec;
+  document.getElementById('pedir-' + colecao).href =
+    'https://wa.me/351966073621?text=Olá!%20Tenho%20interesse%20na%20Coleção%20' +
+    (colecao.charAt(0).toUpperCase() + colecao.slice(1)) +
+    '%20cor%20' + encodeURIComponent(cor) + '%20🌿';
+  btn.closest('.cores-btns').querySelectorAll('.cor-btn').forEach(b => b.classList.remove('ativo'));
+  btn.classList.add('ativo');
+}
+
+function toggleModelos(id, btn) {
+  const lista = document.getElementById('modelos-' + id);
+  lista.classList.toggle('aberto');
+  btn.textContent = lista.classList.contains('aberto') ? 'Fechar' : 'Ver modelos e preços';
+}
 </script>
 
 </body>
